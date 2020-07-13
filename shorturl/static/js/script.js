@@ -15,7 +15,7 @@ function getCookie(name) {
 var csrftoken = getCookie("csrftoken");
 
 const postUrlToBackend = (urlToShorten) => {
-  const url = "https://url-shortener-avatarr95.herokuapp.com/url-generator";
+  const url = "https://url-shortener-avatarr95.herokuapp.com/url-generator/";
   fetch(url, {
     method: "POST",
     headers: {
@@ -31,7 +31,7 @@ const postUrlToBackend = (urlToShorten) => {
       console.log(data);
       document.querySelector(".form-control").value = "";
       document.querySelector(".shortened-url").innerHTML = ` 
-      <a href="${data["long_url"]}" class="text-none text-white">Your shortened link is https://url-shortener-avatarr95.herokuapp.com/${data["short_url"]}</a>
+      <a href="${data["long_url"]}" class="text-none text-white">Your shortened link is https://url-shortener-avatarr95.herokuapp.com/${data["short_url"]}/</a>
       `;
 
       debugger;
