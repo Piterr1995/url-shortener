@@ -21,6 +21,7 @@ const postUrlToBackend = (urlToShorten) => {
     headers: {
       "X-CSRFToken": csrftoken,
       "Content-Type": "application/json",
+      Accept: "application/json",
     },
     body: JSON.stringify({
       urlToShorten: urlToShorten,
