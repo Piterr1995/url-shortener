@@ -13,6 +13,7 @@ class IndexView(TemplateView):
 
 def url_generator(request):
     """
+    Creates a new Url instance
     Returns: JSON Response with shortened url
     """
     if request.method == "POST":
