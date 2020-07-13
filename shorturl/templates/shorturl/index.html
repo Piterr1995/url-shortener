@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container text-center mt-4 text-white">
+  <div class="row">
+    <div class="col-md-6 offset-3">
+      <h2 style="font-weight: bold;">SHORTEN YOUR URL!</h2>
+      <div class="form-group">
+        <input
+          class="form-control text-center"
+          name="email"
+          placeholder="Enter your URL here"
+        />
+        <button class="btn btn-light mt-1 url-submit" type="submit">
+          Submit
+        </button>
+        {% csrf_token %}
+      </div>
+    </div>
+    <div class="col-md-6 offset-3">
+      <div class="text-white text-center shortened-url"></div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
