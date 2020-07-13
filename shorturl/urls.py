@@ -7,3 +7,12 @@ urlpatterns = [
     path("<str:shortened_url>/", views.link_redirect, name="link-redirect"),
 ]
 
+urlpatterns += patterns(
+    "",
+    (
+        r"^static/(?P<path>.*)$",
+        "django.views.static.serve",
+        {"document_root": settings.STATIC_ROOT},
+    ),
+)
+
