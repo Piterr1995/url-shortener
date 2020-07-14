@@ -28,7 +28,7 @@ const postUrlToBackend = (urlToShorten) => {
       urlToShorten: urlToShorten,
     }),
   })
-    .then((res) => res.text())
+    .then((res) => res)
     .then((data) => {
       console.log(data);
       document.querySelector(".form-control").value = "";
