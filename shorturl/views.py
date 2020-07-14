@@ -1,5 +1,5 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from django.http import HttpResponseRedirect, HttpResponseBadRequest
 from django.http.response import JsonResponse
 from django.views.generic import TemplateView
 from .models import Url
@@ -35,6 +35,9 @@ def link_redirect(request, shortened_url: str):
         shortened_url -> taken from the url
     
     """
-    url = Url.objects.get(short_url=shortened_url)
-    long_url = url.long_url
-    return redirect(long_url)
+    try:
+        url = Url.objects.get(short_url=shortened_url)
+        long_url = url.long_url
+        return HttpResponseRedirect(long_url)
+    except Url.DoesNotExist or TypeError:
+        return HttpResponseBadRequest("Wrong url")
