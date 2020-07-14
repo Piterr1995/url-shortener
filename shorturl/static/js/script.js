@@ -36,7 +36,8 @@ const postUrlToBackend = (urlToShorten) => {
       `;
 
       debugger;
-    });
+    })
+    .catch((err) => console.log(err));
 };
 
 const submitButton = document.querySelector(".url-submit");
